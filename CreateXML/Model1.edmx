@@ -1,0 +1,222 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="OneStopModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="T_ORDER_DETAIL">
+          <Key>
+            <PropertyRef Name="RARefNum" />
+            <PropertyRef Name="RARefLine" />
+          </Key>
+          <Property Name="RARefNum" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="RARefLine" Type="int" Nullable="false" />
+          <Property Name="SKU" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="SKUDescription" Type="nvarchar" MaxLength="200" />
+          <Property Name="Package" Type="nvarchar" MaxLength="30" />
+          <Property Name="OrderedQty" Type="numeric" Precision="12" Scale="3" Nullable="false" />
+          <Property Name="PickedQty" Type="numeric" Precision="12" Scale="3" Nullable="false" />
+          <Property Name="PickedBy" Type="nvarchar" MaxLength="30" />
+          <Property Name="PickedDate" Type="datetime" />
+          <Property Name="ShippedQty" Type="numeric" Precision="12" Scale="3" Nullable="false" />
+          <Property Name="ShippedBy" Type="nvarchar" MaxLength="30" />
+          <Property Name="ShippedDate" Type="datetime" />
+          <Property Name="SupplierId" Type="nvarchar" MaxLength="30" />
+          <Property Name="SupplierName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ManufactoryDate" Type="datetime" />
+          <Property Name="ExpiryDate" Type="datetime" />
+          <Property Name="FIFODate" Type="datetime" />
+          <Property Name="QACode" Type="nvarchar" MaxLength="10" />
+          <Property Name="ReferenceInfo1" Type="nvarchar" MaxLength="30" />
+          <Property Name="ReferenceInfo2" Type="nvarchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="T_ORDER_HEADER">
+          <Key>
+            <PropertyRef Name="RARefNum" />
+          </Key>
+          <Property Name="RARefNum" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="WMSRefNum" Type="nvarchar" MaxLength="20" />
+          <Property Name="Customer" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="CreationDate" Type="datetime" />
+          <Property Name="OrderDate" Type="datetime" />
+          <Property Name="ExpShippedDate" Type="datetime" />
+          <Property Name="LastShippedDate" Type="datetime" />
+          <Property Name="CustomerOrderReference" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="CustomerShipmentNo" Type="nvarchar" MaxLength="30" />
+          <Property Name="CustomerSONo" Type="nvarchar" MaxLength="30" />
+          <Property Name="CustomerInvoiceNo" Type="nvarchar" MaxLength="30" />
+          <Property Name="SupplierId" Type="nvarchar" MaxLength="30" />
+          <Property Name="SupplierName" Type="nvarchar" MaxLength="50" />
+          <Property Name="TransportMode" Type="nvarchar" MaxLength="30" />
+          <Property Name="ShipmentNo" Type="nvarchar" MaxLength="30" />
+          <Property Name="DocumentNo" Type="nvarchar" MaxLength="30" />
+          <Property Name="CustomerReference1" Type="nvarchar" MaxLength="30" />
+          <Property Name="CustomerReference2" Type="nvarchar" MaxLength="30" />
+          <Property Name="ReferenceInfo1" Type="nvarchar" MaxLength="30" />
+          <Property Name="ReferenceInfo2" Type="nvarchar" MaxLength="30" />
+          <Property Name="ConsigneeId" Type="nvarchar" MaxLength="30" />
+          <Property Name="ConsigneeName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ConsigneeAddress" Type="nvarchar" MaxLength="200" />
+          <Property Name="CarrierId" Type="nvarchar" MaxLength="30" />
+          <Property Name="CarrierName" Type="nvarchar" MaxLength="50" />
+          <Property Name="CarrierAddress" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityContainer Name="OneStopModelStoreContainer">
+          <EntitySet Name="T_ORDER_DETAIL" EntityType="Self.T_ORDER_DETAIL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_ORDER_HEADER" EntityType="Self.T_ORDER_HEADER" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="OneStopModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="T_ORDER_DETAIL">
+          <Key>
+            <PropertyRef Name="RARefNum" />
+            <PropertyRef Name="RARefLine" />
+          </Key>
+          <Property Name="RARefNum" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RARefLine" Type="Int32" Nullable="false" />
+          <Property Name="SKU" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SKUDescription" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Package" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="OrderedQty" Type="Decimal" Precision="12" Scale="3" Nullable="false" />
+          <Property Name="PickedQty" Type="Decimal" Precision="12" Scale="3" Nullable="false" />
+          <Property Name="PickedBy" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="PickedDate" Type="DateTime" Precision="3" />
+          <Property Name="ShippedQty" Type="Decimal" Precision="12" Scale="3" Nullable="false" />
+          <Property Name="ShippedBy" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="ShippedDate" Type="DateTime" Precision="3" />
+          <Property Name="SupplierId" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="SupplierName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ManufactoryDate" Type="DateTime" Precision="3" />
+          <Property Name="ExpiryDate" Type="DateTime" Precision="3" />
+          <Property Name="FIFODate" Type="DateTime" Precision="3" />
+          <Property Name="QACode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="ReferenceInfo1" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="ReferenceInfo2" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="T_ORDER_HEADER">
+          <Key>
+            <PropertyRef Name="RARefNum" />
+          </Key>
+          <Property Name="RARefNum" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="WMSRefNum" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Customer" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreationDate" Type="DateTime" Precision="3" />
+          <Property Name="OrderDate" Type="DateTime" Precision="3" />
+          <Property Name="ExpShippedDate" Type="DateTime" Precision="3" />
+          <Property Name="LastShippedDate" Type="DateTime" Precision="3" />
+          <Property Name="CustomerOrderReference" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CustomerShipmentNo" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerSONo" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerInvoiceNo" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="SupplierId" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="SupplierName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TransportMode" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="ShipmentNo" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="DocumentNo" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerReference1" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerReference2" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="ReferenceInfo1" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="ReferenceInfo2" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="ConsigneeId" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="ConsigneeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ConsigneeAddress" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="CarrierId" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="CarrierName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CarrierAddress" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="OneStopEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="T_ORDER_DETAIL" EntityType="Self.T_ORDER_DETAIL" />
+          <EntitySet Name="T_ORDER_HEADER" EntityType="Self.T_ORDER_HEADER" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="OneStopModelStoreContainer" CdmEntityContainer="OneStopEntities">
+          <EntitySetMapping Name="T_ORDER_DETAIL">
+            <EntityTypeMapping TypeName="OneStopModel.T_ORDER_DETAIL">
+              <MappingFragment StoreEntitySet="T_ORDER_DETAIL">
+                <ScalarProperty Name="RARefNum" ColumnName="RARefNum" />
+                <ScalarProperty Name="RARefLine" ColumnName="RARefLine" />
+                <ScalarProperty Name="SKU" ColumnName="SKU" />
+                <ScalarProperty Name="SKUDescription" ColumnName="SKUDescription" />
+                <ScalarProperty Name="Package" ColumnName="Package" />
+                <ScalarProperty Name="OrderedQty" ColumnName="OrderedQty" />
+                <ScalarProperty Name="PickedQty" ColumnName="PickedQty" />
+                <ScalarProperty Name="PickedBy" ColumnName="PickedBy" />
+                <ScalarProperty Name="PickedDate" ColumnName="PickedDate" />
+                <ScalarProperty Name="ShippedQty" ColumnName="ShippedQty" />
+                <ScalarProperty Name="ShippedBy" ColumnName="ShippedBy" />
+                <ScalarProperty Name="ShippedDate" ColumnName="ShippedDate" />
+                <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
+                <ScalarProperty Name="SupplierName" ColumnName="SupplierName" />
+                <ScalarProperty Name="ManufactoryDate" ColumnName="ManufactoryDate" />
+                <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
+                <ScalarProperty Name="FIFODate" ColumnName="FIFODate" />
+                <ScalarProperty Name="QACode" ColumnName="QACode" />
+                <ScalarProperty Name="ReferenceInfo1" ColumnName="ReferenceInfo1" />
+                <ScalarProperty Name="ReferenceInfo2" ColumnName="ReferenceInfo2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_ORDER_HEADER">
+            <EntityTypeMapping TypeName="OneStopModel.T_ORDER_HEADER">
+              <MappingFragment StoreEntitySet="T_ORDER_HEADER">
+                <ScalarProperty Name="RARefNum" ColumnName="RARefNum" />
+                <ScalarProperty Name="WMSRefNum" ColumnName="WMSRefNum" />
+                <ScalarProperty Name="Customer" ColumnName="Customer" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+                <ScalarProperty Name="ExpShippedDate" ColumnName="ExpShippedDate" />
+                <ScalarProperty Name="LastShippedDate" ColumnName="LastShippedDate" />
+                <ScalarProperty Name="CustomerOrderReference" ColumnName="CustomerOrderReference" />
+                <ScalarProperty Name="CustomerShipmentNo" ColumnName="CustomerShipmentNo" />
+                <ScalarProperty Name="CustomerSONo" ColumnName="CustomerSONo" />
+                <ScalarProperty Name="CustomerInvoiceNo" ColumnName="CustomerInvoiceNo" />
+                <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
+                <ScalarProperty Name="SupplierName" ColumnName="SupplierName" />
+                <ScalarProperty Name="TransportMode" ColumnName="TransportMode" />
+                <ScalarProperty Name="ShipmentNo" ColumnName="ShipmentNo" />
+                <ScalarProperty Name="DocumentNo" ColumnName="DocumentNo" />
+                <ScalarProperty Name="CustomerReference1" ColumnName="CustomerReference1" />
+                <ScalarProperty Name="CustomerReference2" ColumnName="CustomerReference2" />
+                <ScalarProperty Name="ReferenceInfo1" ColumnName="ReferenceInfo1" />
+                <ScalarProperty Name="ReferenceInfo2" ColumnName="ReferenceInfo2" />
+                <ScalarProperty Name="ConsigneeId" ColumnName="ConsigneeId" />
+                <ScalarProperty Name="ConsigneeName" ColumnName="ConsigneeName" />
+                <ScalarProperty Name="ConsigneeAddress" ColumnName="ConsigneeAddress" />
+                <ScalarProperty Name="CarrierId" ColumnName="CarrierId" />
+                <ScalarProperty Name="CarrierName" ColumnName="CarrierName" />
+                <ScalarProperty Name="CarrierAddress" ColumnName="CarrierAddress" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
